@@ -6,7 +6,26 @@
 
 This project contains a multi-agent system designed to help homeowners manage household maintenance tasks intelligently. The agent is built using Google Agent Development Kit (ADK) and follows a modular architecture that coordinates specialized sub-agents to research, analyze, and compile comprehensive household maintenance recommendations.
 
-### Problem Statement
+## Quick Start
+- Get agent code:
+```
+git clone https://github.com/SvetlanaNMik/Google-Kaggle-Capstone-Project.git
+cd Google-Kaggle-Capstone-Project/
+
+```
+- Provide GOOGLE_API_KEY through either your environment or .env file.
+```
+export GOOGLE_API_KEY="<your_API_key>"
+```
+- Run ADK web server and access it at http://127.0.0.1:8000
+```
+adk web
+```
+- Use provided web interface to get a list of upcoming maintenance tasks:
+
+![SCREENSHOT](./screenshot.png "Screenshot")
+
+## Problem Statement
 
 Homeowners frequently face challenges to keep track of multiple maintenance responsibilities across appliances, seasonal yard work, and routine home care. Forgetting maintenance schedules can lead to costly repairs, reduced appliance lifespan, and safety hazards. The challenge is compounded by:
 
@@ -17,7 +36,7 @@ Homeowners frequently face challenges to keep track of multiple maintenance resp
 
 Without a centralized system, homeowners often react to problems rather than preventing them, leading to higher costs and avoidable emergencies.
 
-### Solution Statement
+## Solution Statement
 
 The Household Management Agent automates the entire process of household maintenance planning by:
 
@@ -29,7 +48,7 @@ The Household Management Agent automates the entire process of household mainten
 
 This transforms household maintenance from a reactive scramble into a proactive, organized system.
 
-### Architecture
+## Architecture
 
 The Household Management Agent is a sophisticated multi-agent system where specialized agents collaborate to deliver comprehensive maintenance recommendations. The central orchestrator is the `HouseholdRootAgent`.
 
@@ -92,7 +111,7 @@ Analyzes historical maintenance records to predict future needs. This agent:
 - Generates predicted maintenance dates in standardized format (mm/dd/yyyy)
 - Flags appliances lacking sufficient historical data
 
-### Essential Tools and Utilities
+## Essential Tools and Utilities
 
 **MCP Toolset Integration (`mcp_tool`)**
 
@@ -119,7 +138,7 @@ The `ProjectConfig` dataclass centralizes all configuration:
 - Retry logic: Exponential backoff with 5 attempts for handling rate limits and transient failures
 - HTTP status handling: 429, 500, 503, 504
 
-### Workflow
+## Workflow
 
 The `HouseholdRootAgent` follows this workflow:
 
@@ -139,7 +158,7 @@ The `HouseholdRootAgent` follows this workflow:
    - Appliance-specific maintenance (grouped by appliance, ordered by date)
    - Seasonal maintenance tasks (with important dates highlighted)
 
-### Value Statement
+## Value Statement
 
 The Household Management Agent saves homeowners significant time and prevents costly repairs by:
 
@@ -171,7 +190,7 @@ Additional requirements:
 - Google Cloud credentials for Gemini API access
 - Access to MCP endpoint (configured in `mcp.py`)
 
-### Running the Agent in ADK Web Mode
+## Running the Agent in ADK Web Mode
 
 From the command line of the working directory, execute:
 
